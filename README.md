@@ -75,7 +75,7 @@ At least for now.
 # The Future
 So it's pretty clear what's going to happen:
 - Some Universities will adopt Rust and plague their students with it. They can do
-  so becuase they just burn tax payers money.
+  so because they just burn tax payers money, not their own.
 - Several companies will go bankrupt because they adopted the idea to use Rust, but
   slowed down their development time heavily because they couldn't find enough
   Rust developers and the learning curve for their [already busy and not very
