@@ -43,8 +43,8 @@ I really liked some of the ideas about Rust, so I gave it a chance.
   at the end of the function name like this `fn myfunc<'y>(x:&'y Mytype<'y>)`.
   How hard can it be for the compiler to figure out that there's a `y` lifetime in
   the parameter block?
-- `String` vs `&str` - Just make my day! Add syntactic sugar or whatever, just don't
-  have two string types!
+- `String` vs `&str` vs ... - Just make my day! Add syntactic sugar or whatever,
+  just don't have several different string types!
 - You can never get a make-my-day answer to your question in a Rust forum. You
   ask a simple question, but get kilometers of theoretical explanations in response.
   Yes, I know they mean well. They are trying to explain the theory behind it.
@@ -95,4 +95,17 @@ So it's pretty clear what's going to happen:
   Ai system and let it take care of the coding. And, while we're at it - talking,
   not typing, is the future!
 
-  
+# Final Conclusion
+Rust risks becoming a very expensive programming language if "rustaceans" manages
+to trick software companies to start using it - and they can be very convincing!
+They will maintain that Rust is so fast and safe, and other programming languages
+contain many undiscovered bugs that are hard and time consuming to iron out. I
+agree - but what other costs does Rust bring to the table?
+- Rust developers are rare, so they become expensive.
+- Can you replace the Rust developer who decided to leave?
+- Since Rust is still in development, you regularly need to upgrade the code, and
+  put aside time for your Rust developer to learn the new versions.
+- Maintaining Rust (new and old versions) will be costly and inefficient.
+- Since it takes so long time to develop code in Rust, your product will hit the
+  market late. Definitely not an option for startups!
+- If universities adopt it, it will be yet another expense for tax payers.
