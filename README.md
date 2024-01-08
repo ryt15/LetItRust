@@ -28,6 +28,8 @@ I really liked some of the ideas about Rust, so I gave it a chance.
   `{` and end with `}`.
 - There's no `NULL`. You have to learn how to handle `None`, `if let Some()` et al,
   which is doable (compared to lifetimes).
+- Rust has `struct` and `enum`.
+- Rust has a `boolean ` data type, and keywords `true` and `false`.
 
   
 # Rust Cons
@@ -73,6 +75,14 @@ I really liked some of the ideas about Rust, so I gave it a chance.
   But why? Very few job ads ask for Rust developers. So I wonder - has Rust become a
   religion only understood by some higher priests? If so, keep me out of it! At
   least until it has matured enough.
+- Rust is not object oriented. So instead of using object oriented terminalogy you
+  have to learn strange terms like _Trait_ and _Cradle_. And "methods" are declared
+  `impl`.
+- You can never get a straight answer if you ask about something in a Rust forum.
+  You always get a long explanation, usually with lots of links to the doc. In
+  the rare situation someone presents a short and seemingly correct answer, it
+  doesn't take long until someone else objects, saying the first answer is wrong
+  or only applies in certain situations.
 
 # Rust Compiler Example
 ```rust
@@ -108,6 +118,10 @@ Some errors have detailed explanations: E0505, E0515.
 For more information about an error, try `rustc --explain E0505`.
 error: could not compile `fig02` (lib) due to 2 previous errors
 ```
+In most other programming languages, you can simply copy the error message to
+your browser and search for it, and often find a short and compact answer.
+But how do you grab the above? It's not a oneliner!
+
 
 # My Verdict
 If you're a normal company with a limited budget, just don't care about Rust!
