@@ -62,50 +62,94 @@ I really liked some of the ideas about Rust, so I gave it a chance.
   and you have to spend hours getting it right.
 - Silly long sequences of shit like `return self.desc.as_ref().unwrap().to_string();`.
   Hey, come on!
+- Compilers for most decent programming languages give you one error message and a line
+  number. But in Rust, one and the same problem is related to many different lines
+  in the code, combined with cryptic error messages. This makes it difficult to know
+  where to start. If you also have a tight schedule, trying to fix the bug becomes
+  a nightmare. Should you ask for advice, you most likely get a link to a chapter
+  in the Rust documentation which feels very unrelated to the actual bug (see below).
 - According to [polls](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages),
   Rust has become a very popular and admired programming language.
   But why? Very few job ads ask for Rust developers. So I wonder - has Rust become a
   religion only understood by some higher priests? If so, keep me out of it! At
   least until it has matured enough.
 
-# My verdict
+# Rust Compiler Example
+```rust
+   Compiling fig02 v0.1.0 (/home/salfor/lab/rust/fig02)
+error[E0505]: cannot move out of `design` because it is borrowed
+   --> src/product.rs:703:9
+    |
+609 | ...ub fn build_design_lists<'a>(main_documents:&Vec<MainDocument>,
+    |                             -- lifetime `'a` defined here
+...
+617 | ...   let mut design = Design::default();
+    |           ---------- binding `design` declared here
+...
+687 | ...      let fill_nodes: &HashMap<String, FillNode> = design.style_fills.as_ref().un...
+    |                                                       --------------------------- borrow of `design.style_fills` occurs here
+...
+703 | ...   design
+    |       ^^^^^^
+    |       |
+    |       move out of `design` occurs here
+    |       returning this value requires that `design.style_fills` is borrowed for `'a`
+
+error[E0515]: cannot return value referencing local data `design.style_fills`
+   --> src/product.rs:703:9
+    |
+687 | ...      let fill_nodes: &HashMap<String, FillNode> = design.style_fills.as_ref().un...
+    |                                                       --------------------------- `design.style_fills` is borrowed here
+...
+703 | ...   design
+    |       ^^^^^^ returns a value referencing data owned by the current function
+
+Some errors have detailed explanations: E0505, E0515.
+For more information about an error, try `rustc --explain E0505`.
+error: could not compile `fig02` (lib) due to 2 previous errors
+```
+
+# My Verdict
 If you're a normal company with a limited budget, just don't care about Rust!
-At least for now.
+__Wait__ until Rust has matured, and the fanatics are gone, replaced by
+decent easy-to-find developers demanding normal salaries, before you allow
+Rust into your software environment. Or - use another programming language
+which has adopted some of the good parts from Rust, skipping the bad ones.
 
 # The Future
 So it's pretty clear what's going to happen:
 - Some Universities will adopt Rust and plague their students with it. They can do
   so because they just burn tax payers money, not their own.
-- Several companies will go bankrupt because they adopted the idea to use Rust, but
+- Several companies will go bankrupt because they adopted Rust too early, which
   slowed down their development time heavily because they couldn't find enough
-  Rust developers and the learning curve for their [already busy and not very
-  inspired] developer took too long to learn Rust, and basically used a trial-and-error
-  approache to it. Also, to avoid having to deal with lifetime parameters they tried
-  to reduce the number of functions, making them very difficult to debug, which
-  made testing very difficult and nobody got a good grasp on what the functions
-  really did (since they did too many things).
-- Technical debt will build up rapidly in many Rust based projects because the
-  general rule will be: __Don't touch it if it works!__. And all Rust modules
-  will start with `#[allow(unused_imports)]` and `#[allow(unused)]` simply because
-  developers were too far behind schedule so they didn't have time to
-  consider those nice built-in warnings.
-- Someone else will catch the good core ideas about Rust, and cherrypick the good
-  stuff out of it, create a much better programming language. But...
+  Rust developers and the learning curve for their (already busy and not very
+  inspired) developer took too long to learn Rust.
+- Developers forced to maintain Rust before being experts in it, would probably
+  take on a trial-and-error approach. And to avoid dealing with
+  scary lifetime parameters, they would try to reduce the number of functions.
+  This results in large functions that are very difficult to debug, understand,
+  test and maintain. In other words - technical debt is built up quickly and in
+  the end you might have to rewrite the entire code base in some other language!
+- Someone else will cherry pick the good core ideas about Rust, and develop
+  a much better programming language. But...
 - AI will make programming languages less interesting. We will just talk to the
-  Ai system and let it take care of the coding. And, while we're at it - talking,
+  AI, letting it do the coding. And, while we're at it - talking,
   not typing, is the future!
 
 # Final Conclusion
-Rust risks becoming a very expensive programming language if "rustaceans" manages
-to trick software companies to start using it - and they can be very convincing!
-They will maintain that Rust is so fast and safe, and other programming languages
+Rust risks becoming a very __expensive__ programming language if "rustaceans" manage
+to trick software companies adopting it - and they can be very convincing!
+They will maintain that Rust is fast and safe, and other programming languages
 contain many undiscovered bugs that are hard and time consuming to iron out. I
-agree - but what other costs does Rust bring to the table?
-- Rust developers are rare, so they become expensive.
-- Can you replace the Rust developer who decided to leave?
-- Since Rust is still in development, you regularly need to upgrade the code, and
-  put aside time for your Rust developer to learn the new versions.
-- Maintaining Rust (new and old versions) will be costly and inefficient.
+agree to some extent - but what other costs does Rust bring?
+- __Rust developers are rare__, so they become expensive and critical __bottle-necks__.
+- Since Rust is still in development, you __regularly need to upgrade__ the code, and
+  put aside time to learn the new versions, which also adds expenses and delays.
+- If you don't have time to catch up with recent versions of Rust, __security
+  holes__ will linger in your code without being patched. And the longer you wait
+  before upgrading, the harder will it be to catch up. Most developers want to
+  create new code, not poke around in old, unless you really pay them well.
 - Since it takes so long time to develop code in Rust, your product will hit the
-  market late. Definitely not an option for startups!
+  market late. Definitely __not an option for startups__!
 - If universities adopt it, it will be yet another expense for tax payers.
+- Be aware! Rust risks becoming a __Trojan horse__ if allowed inside your project!
