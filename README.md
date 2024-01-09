@@ -62,8 +62,8 @@ I really liked some of the ideas about Rust, so I gave it a chance.
 - Entanglement: You make a function e1() and it works. You make function e2() and
   it also works. But when you call function e2() after e1(), all hell breaks lose
   and you have to spend hours getting it right.
-- Silly long sequences of shit like `return self.desc.as_ref().unwrap().to_string();`.
-  Hey, come on!
+- Some code gets unnecessarily complex and hard to grasp, which makes maintenance
+  a headache `return self.desc.as_ref().unwrap().to_string();`.
 - Compilers for most decent programming languages give you one error message and a line
   number. But in Rust, one and the same problem is related to many different lines
   in the code, combined with cryptic error messages. This makes it difficult to know
@@ -167,3 +167,5 @@ agree to some extent - but what other costs does Rust bring?
   market late. Definitely __not an option for startups__!
 - If universities adopt it, it will be yet another expense for tax payers.
 - Be aware! Rust risks becoming a __Trojan horse__ if allowed inside your project!
+
+<img src="RedditRustAdvice.png" raw=true alt="Reddit advice: Just take it easy, and approach step by step. Try to (re)read chapter 4.2 of the Rust Book found online, try to understand it, try to experiment with it, try to break it, try to fight it, try to surrender to it. Once you get the hang of ownership rules, come back to the exercise!" />
