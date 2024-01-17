@@ -33,26 +33,29 @@ I really liked some of the ideas about Rust, so I gave it a chance.
 
   
 # Rust Cons
-- You can't switch your team into starting coding in Rust. You won't be able to
-  find enough good Rust developers. You could of course give them regular training but
+- It may be difficult to switch your team into starting coding in Rust.
+  You could of course give them regular training but
   that will delay your project and Rust will change so quickly (since it's still
   immature) so what they learn now won't be applicable tomorrow. Your code base will
   always be old.
+- If there's only one or a few rustacens in your company, among more traditional
+  developers, a conflict may arise between the groups.
 - Some things are not very elegant, such as the `Option` specifiers. What's wrong
   with `Opt` or just `?` as in TypeScript?
-- Stupid extra declarations. Suppose you want to declare a function `myfunc` that
+- Unnecessary declarations. Suppose you want to declare a function `myfunc` that
   takes a lifetime specifier `y` for the parameter `x`. Then you must declare `<'y>`
   at the end of the function name like this `fn myfunc<'y>(x:&'y Mytype<'y>)`.
   How hard can it be for the compiler to figure out that there's a `y` lifetime in
   the parameter block?
-- `String` vs `&str` vs ... - Just make my day! Add syntactic sugar or whatever,
-  just don't have several different string types!
+- Partial ownership - very difficult to maintain.
+- `String` vs `&str` vs ... - All these different string types indicates that the
+  language is still too immature.
 - You can never get a make-my-day answer to your question in a Rust forum. You
   ask a simple question, but get kilometers of theoretical explanations in response.
   Yes, I know they mean well. They are trying to explain the theory behind it.
   But useful languages simple shouldn't expect you to read a bible just to get
   through ordinary and common issues. C has this issue with memory allocation
-  which is a bitch - but that's all. This is a fart in the galaxy compared to
+  which is a bitch - but that's all. It is a fart in the galaxy compared to
   what you also have to grasp to become a Rust Priest. Well, maybe if you can
   waste tax payers money or are doing time it might be an option to read it,
   but most people are busy.
@@ -72,13 +75,13 @@ I really liked some of the ideas about Rust, so I gave it a chance.
   in the Rust documentation which feels very unrelated to the actual bug (see below).
 - According to [polls](https://survey.stackoverflow.co/2023/#section-admired-and-desired-programming-scripting-and-markup-languages),
   Rust has become a very popular and admired programming language.
-  But why? Very few job ads ask for Rust developers. So I wonder - has Rust become a
-  religion only understood by some higher priests? If so, keep me out of it! At
-  least until it has matured enough.
+  But why? Very few job ads ask for Rust developers. I understand that the Rust's
+  safety and speed can attract many, but if you use Rust just to belong to a cult
+  I suggest you do it on your free time only.
 - Rust is not object oriented. So instead of using object oriented terminalogy you
   have to learn strange terms like _Trait_ and _Cradle_. And "methods" are declared
   `impl`.
-- You can never get a straight answer if you ask about something in a Rust forum.
+- You can seldom get a straight answer if you ask about something in a Rust forum.
   You always get a long explanation, usually with lots of links to the doc. In
   the rare situation someone presents a short and seemingly correct answer, it
   doesn't take long until someone else objects, saying the first answer is wrong
@@ -130,6 +133,11 @@ decent easy-to-find developers demanding normal salaries, before you allow
 Rust into your software environment. Or - use another programming language
 which has adopted some of the good parts from Rust, skipping the bad ones.
 
+If, and only if, you actually have lots of Rust enthusiasts in your company,
+it might be an idea to start using it. But keep it local! Please keep the
+Linux kernel out of it, at least until more people have learned Rust and it
+has matured a lot more.
+
 # The Future
 So it's pretty clear what's going to happen:
 - Some Universities will adopt Rust and plague their students with it. They can do
@@ -151,7 +159,7 @@ So it's pretty clear what's going to happen:
   not typing, is the future!
 
 # Final Conclusion
-Rust risks becoming a very __expensive__ programming language if "rustaceans" manage
+Rust risks becoming a very __expensive__ programming language if rustaceans manage
 to trick software companies adopting it - and they can be very convincing!
 They will maintain that Rust is fast and safe, and other programming languages
 contain many undiscovered bugs that are hard and time consuming to iron out. I
